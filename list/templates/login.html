@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div <div class="form-group row">
+  <div class="col-md-3 col-md-offset-1">
+  <h1>Login</h1>
+  <form method="POST" action="/login/" class="form-group">
+    {% csrf_token %}
+    <input type="text" name="logUsername" class="form-control loginform" placeholder="Username">
+    <input type="password" name="logPassword" class="form-control loginform" placeholder = "Pasword">
+    <input type="submit" value="Log In" name ="login" class="loginform btn btn-primary">
+  </form>
+</div>
+ <div class="col-md-3 col-md-offset-3">
+  <h1>Sign up</h1>
+  <form method="POST" action="/login/" class="form-group">
+    {% csrf_token %}
+    <input type="text" name="regUsername" class="form-control loginform" placeholder="Username">
+    <input type="password" name="regPassword" class="form-control loginform" placeholder="Password">
+    <input type="password" name="confPassword" class="form-control loginform" placeholder="Confirm Password">
+    <input type="text" name="regEmail" class="form-control loginform" placeholder="Email">
+    <input type="submit" value="Sign Up" name ="signup" class="loginform btn btn-success">
+    </form>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+  <ul class="list-group booklist">
+    {% for result in resultList %}
+      <li>
+          <div class="thumbnail">
+            <img src={{result.img}}>
+          </div>
+          <div class="info container" >
+            <p><b>Title:</b> {{result.title}}</p>
+            <p><b>Author:</b> {{result.authors}}</p>
+            <p><b>Description:</b></p>
+            <p class="description">{{result.description}}</p>
+          </div>
+          <div class="clear"></div>
+            <form method="POST" class="form-group addbutton" action="/list/" >
+            {% csrf_token %}
+            {% if result.id in book_list %}
+              <input type="hidden" name="book_id" value="{{result.id}}">
+              <input type="submit" value="Remove from list" class="btn btn-danger addbutton" name="remove_list">
+            {% else %}
+              <input type="hidden" name="book_id" value="{{result.id}}">
+              <input type="submit" value="Add to list" class="btn btn-primary addbutton" name="add_list">
+            {% endif %}
+            </form>
+      </li>
+      {% endfor %}
+  </ul>
+{% endblock %}
+
