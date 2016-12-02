@@ -1,5 +1,6 @@
 import os
 import requests
+import sys
 #from . import keys
 
 class gbooks():
@@ -11,7 +12,8 @@ class gbooks():
         ls=[]
         parms = {"q":value, 'key':self.API_KEY}
         r = requests.get(url="https://www.googleapis.com/books/v1/volumes", params=parms)
-        #print (r.url)
+        print (r.url)
+        sys.stdout.flush()
         rj = r.json()
         for i in rj["items"]:
             info={}
@@ -52,7 +54,7 @@ class gbooks():
         return info
 if __name__ == "__main__":
     bk = gbooks()
+    print(bk.search("stephen king"))
     #bk.search("stephen king")
-    #bk.search("stephen king")
-    print(bk.getBook("d999Z2KbZJYC"))
+    #print(bk.getBook("d999Z2KbZJYC"))
 
