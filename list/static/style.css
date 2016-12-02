@@ -13,6 +13,8 @@ body
 
 background-color: #ECEAE0;
 background-color: #b2cecf;
+font-family: 'Aref Ruqaa', serif;
+font-size: 15px;
 }
 
 
@@ -84,11 +86,13 @@ background-color: #b2cecf;
 {
   text-align: center;
   margin-top: 100px;
+  font-family: 'Aref Ruqaa', serif;
 }
 
 .main-search-button
 {
   width: 100%;
+  height: 40px;
 }
 
 .placeholder
