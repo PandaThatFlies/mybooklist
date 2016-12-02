@@ -22,10 +22,11 @@ urlpatterns = [
     url(r'^$', views.home_page, name='home_page'),
     url(r'^search_results/', views.search_results, name='search_results'),
     url(r'^login/', views.login_page, name='login'),
-    url(r'^testing/', views.testing, name='testing'),
     url(r'^list/', views.list_page, name='list_page'),
 
 
 
 
 ]
+
+handler404 = 'list.views.page_not_found_view'

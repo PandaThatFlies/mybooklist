@@ -37,17 +37,20 @@ def login_page(request):
                 login(request, user)
                 return redirect("home_page")
             else:
-                return HttpResponse("Wrong username/password")              
+                error="Wrong username and password combination"
+                return render(request,"error.html",{"error":error})              
         elif request.POST.get("signup"):
             username=request.POST.get('regUsername', None)
             password=request.POST.get('regPassword', None)
             confpasswprd=request.POST.get('confPassword', None)
             email=request.POST.get('regEmail', None)
             if(confpasswprd!=password):
-                return HttpResponse("Passwords didn't match")
+                errpr="Passwords didn't match"
+                return render(request,"error.html",{"error":error}) 
             try:
                 user_exists = User.objects.get(username=username)
-                return HttpResponse("Username already taken")
+                errpr ="Username already taken"
+                return render(request,"error.html",{"error":error}) 
             except User.DoesNotExist:
                 user = User.objects.create_user(username, email)
                 user.set_password(password)
@@ -87,5 +90,5 @@ def list_page(request):
         book_list.append(fetch.getBook(id))
     return render(request,"list_page.html",{"book_list":book_list})
 
-def testing(request):
-    return HttpResponse("s")
+def page_not_found_view(request):
+    return HttpResponse("page not found")
