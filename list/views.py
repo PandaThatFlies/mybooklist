@@ -23,7 +23,8 @@ def search_results(request):
         else:
             return render(request,"search_results.html",{"resultList":resultList})
 
-    return HttpResponse("<h1>Use post</h1>")
+    error="access forbidden"
+    return render(request,"error.html",{"error":error}) 
 
 def login_page(request):
     if(request.user.id!=None):
@@ -45,11 +46,11 @@ def login_page(request):
             confpasswprd=request.POST.get('confPassword', None)
             email=request.POST.get('regEmail', None)
             if(confpasswprd!=password):
-                errpr="Passwords didn't match"
+                error="Passwords didn't match"
                 return render(request,"error.html",{"error":error}) 
             try:
                 user_exists = User.objects.get(username=username)
-                errpr ="Username already taken" 
+                error ="Username already taken" 
                 return render(request,"error.html",{"error":error}) 
             except User.DoesNotExist:
                 user = User.objects.create_user(username, email)
