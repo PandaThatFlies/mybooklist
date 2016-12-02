@@ -12,8 +12,8 @@ class gbooks():
         ls=[]
         parms = {"q":value, 'key':self.API_KEY}
         r = requests.get(url="https://www.googleapis.com/books/v1/volumes", params=parms)
-        print (r.url)
-        sys.stdout.flush()
+        #print (r.url)
+        #sys.stdout.flush()
         rj = r.json()
         for i in rj["items"]:
             info={}
