@@ -49,7 +49,7 @@ def login_page(request):
                 return render(request,"error.html",{"error":error}) 
             try:
                 user_exists = User.objects.get(username=username)
-                errpr ="Username already taken"
+                errpr ="Username already taken" 
                 return render(request,"error.html",{"error":error}) 
             except User.DoesNotExist:
                 user = User.objects.create_user(username, email)
