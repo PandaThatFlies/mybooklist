@@ -99,3 +99,9 @@ font-size: 15px;
 {
   height: 80px;
 }
+
+.error-h1
+{
+  text-align: center;
+  margin-top: 100px;
+}
