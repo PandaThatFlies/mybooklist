@@ -1,4 +1,4 @@
-"""mybooklist URL Configuration
+"""BookList URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from list import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.home_page, name='home_page'),
+    url(r'^search_results/', views.search_results, name='search_results'),
+    url(r'^login/', views.login_page, name='login'),
+    url(r'^testing/', views.testing, name='testing'),
+    url(r'^list/', views.list_page, name='list_page'),
+
+
+
+
 ]
