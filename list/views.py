@@ -1,11 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,render_to_response
 from django.http import HttpResponse
-from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.template import RequestContext
 from . import bookSearch
 from . import models
 import json
+
 
 # Create your views here.
 def home_page(request):
@@ -86,12 +87,6 @@ def list_page(request):
         book_list.append(fetch.getBook(id))
     return render(request,"list_page.html",{"book_list":book_list})
 
-def testing(request):
-
-    m=models.UserProfile.objects.filter(user_id=request.user.id)
-    print(json.loads(m[0].book_list))
-
-    return HttpResponse(json.loads(m[0].book_list))
-
-    return HttpResponse("<h1>Use post</h1>")
+def custom_error(request):
+    return HttpResponse("katabalaxa")
 
