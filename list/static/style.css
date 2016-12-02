@@ -1,11 +1,18 @@
 
 
-body, .navbar{
+.navbar{
 
-background: #457fca; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #457fca , #5691c8); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #457fca , #5691c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            
+background-color: #63AA9C;
+position: fixed;
+width: 100%;
+z-index:1;
+}
+
+body
+{
+
+background-color: #ECEAE0;
+background-color: #b2cecf;
 }
 
 
@@ -15,7 +22,7 @@ background: linear-gradient(to left, #457fca , #5691c8); /* W3C, IE 10+/ Edge, F
 }
 .navbar-default
 {
-    border: None;
+    /*border: None;*/
 }
 
 .description
@@ -64,4 +71,27 @@ background: linear-gradient(to left, #457fca , #5691c8); /* W3C, IE 10+/ Edge, F
 .loginform
 {
   margin:20px 0px 20px 0px;
+}
+
+.main-search
+{
+
+  height: 40px;
+  margin:150px 0px 20px 0px;
+}
+
+#home-h1
+{
+  text-align: center;
+  margin-top: 100px;
+}
+
+.main-search-button
+{
+  width: 100%;
+}
+
+.placeholder
+{
+  height: 80px;
 }

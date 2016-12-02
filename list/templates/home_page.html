@@ -2,11 +2,15 @@
 
 {% block title %}BookList{% endblock %}
 {% block content %}
-    <h1>Search Book</h1>
-    <form method="POST" action="/search_results/">
+    <h1 id="home-h1">MyBookList</h1>
+    <div <div class="form-group row">
+  	<div class="col-md-6 col-md-offset-3">
+    <form method="POST" action="/search_results/" class="form-group">
       {% csrf_token %}
-      <input type="text" name="searchWord" required="required">
-      <input type="submit" value="Search"  name="search">
+      <input type="text" name="searchWord" required="required" class="form-control main-search" placeholder="Search a book by title or author">
+      <input type="submit" value="Search"  name="search" class="btn btn-primary main-search-button">
     </form>
+   	</div>
+   </div>
 {% endblock %}
   
