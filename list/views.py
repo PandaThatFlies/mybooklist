@@ -87,6 +87,5 @@ def list_page(request):
         book_list.append(fetch.getBook(id))
     return render(request,"list_page.html",{"book_list":book_list})
 
-def custom_error(request):
-    return HttpResponse("katabalaxa")
-
+def testing(request):
+    return HttpResponse("s")
